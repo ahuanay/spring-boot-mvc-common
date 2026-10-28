@@ -1,12 +1,12 @@
 package com.ahuanay.mvccommon.application.pagination;
 
-public record QueryPagination(
+public record Pagination(
     int page,
     int size,
     String sortBy,
     String direction
 ) {
-    public QueryPagination {
+    public Pagination {
         if (size == 0 || size < -1) {
             size = 10;
         }

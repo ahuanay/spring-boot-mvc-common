@@ -2,7 +2,7 @@ package com.ahuanay.mvccommon.application.pagination;
 
 import java.util.List;
 
-public record PagedReadModel<T>(
+public record PagedResult<T>(
     List<T> content,
     int pageNumber,
     int pageSize,

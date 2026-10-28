@@ -8,13 +8,13 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class QueryPaginationTest {
+class PaginationTest {
 
     @Test
-    @DisplayName("Debería crear QueryPagination con valores válidos correctamente")
+    @DisplayName("Debería crear Pagination con valores válidos correctamente")
     void deberiaCrearQueryPaginationConValoresValidos() {
         // Arrange & Act
-        QueryPagination pagination = new QueryPagination(1, 20, "nombre", "DESC");
+        Pagination pagination = new Pagination(1, 20, "nombre", "DESC");
 
         // Assert
         assertEquals(1, pagination.page());
@@ -28,8 +28,8 @@ class QueryPaginationTest {
     @DisplayName("Debería asignar size por defecto (10) cuando size es 0 o menor a -1")
     void deberiaAsignarValoresPorDefectoCuandoSizeEsInvalido() {
         // Arrange & Act
-        QueryPagination paginationZero = new QueryPagination(0, 0, "id", "ASC");
-        QueryPagination paginationNegative = new QueryPagination(0, -2, "id", "ASC");
+        Pagination paginationZero = new Pagination(0, 0, "id", "ASC");
+        Pagination paginationNegative = new Pagination(0, -2, "id", "ASC");
 
         // Assert
         assertEquals(10, paginationZero.size());
@@ -42,7 +42,7 @@ class QueryPaginationTest {
     @DisplayName("Debería permitir size = -1 reconociendo que no está paginado (unpaged)")
     void deberiaPermitirSizeUnpaged() {
         // Arrange & Act
-        QueryPagination pagination = new QueryPagination(0, -1, "id", "ASC");
+        Pagination pagination = new Pagination(0, -1, "id", "ASC");
 
         // Assert
         assertEquals(-1, pagination.size());
@@ -55,7 +55,7 @@ class QueryPaginationTest {
     @DisplayName("Debería asignar 'id' como sortBy por defecto cuando es nulo o en blanco")
     void deberiaAsignarSortByPorDefecto(String sortByInvalido) {
         // Arrange & Act
-        QueryPagination pagination = new QueryPagination(0, 10, sortByInvalido, "ASC");
+        Pagination pagination = new Pagination(0, 10, sortByInvalido, "ASC");
 
         // Assert
         assertEquals("id", pagination.sortBy());
@@ -67,7 +67,7 @@ class QueryPaginationTest {
     @DisplayName("Debería asignar 'ASC' como direction por defecto cuando es nulo o en blanco")
     void deberiaAsignarDirectionPorDefecto(String directionInvalida) {
         // Arrange & Act
-        QueryPagination pagination = new QueryPagination(0, 10, "id", directionInvalida);
+        Pagination pagination = new Pagination(0, 10, "id", directionInvalida);
 
         // Assert
         assertEquals("ASC", pagination.direction());

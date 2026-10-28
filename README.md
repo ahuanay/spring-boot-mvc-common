@@ -12,8 +12,8 @@ Librería compartida agnóstica desarrollada bajo arquitectura limpia, diseñada
 ## 🚀 Características Principales
 
 * **Estructura REST Unificada (`RestResponse<T>`):** Contrato maestro genérico para estandarizar todas las respuestas del API (éxito con datos, éxito sin contenido, respuestas paginadas y errores con soporte para validación por campos o IDs no encontrados).
-* **Paginación Desacoplada (`PagedReadModel` & `PageMetadata`):** Modelos limpios para la gestión y transporte de paginaciones sin acoplamientos a librerías de persistencia específicas de Spring Data.
-* **Parámetros y Validaciones Robustas (`QueryPagination`):** Utilidades integradas para ordenar, filtrar y parametrizar consultas de forma segura con valores por defecto.
+* **Paginación Desacoplada (`PagedResult` & `PageMetadata`):** Modelos limpios para la gestión y transporte de paginaciones sin acoplamientos a librerías de persistencia específicas de Spring Data.
+* **Parámetros y Validaciones Robustas (`Pagination`):** Utilidades integradas para ordenar, filtrar y parametrizar consultas de forma segura con valores por defecto.
 * **Auditoría JPA Automática (`AuditableEntity`):** Entidad base para el control automático de marcas temporales de creación y actualización (`created_at`, `updated_at`).
 * **Manejo Global de Excepciones REST (`GlobalExceptionHandler`):** Captura centralizada de errores comunes y parámetros inválidos adaptados al contrato unificado.
 * **Documentación OpenAPI / Swagger Integrada:** Anotaciones listas para generar documentación clara y automática en los microservicios consumidores.

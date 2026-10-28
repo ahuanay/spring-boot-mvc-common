@@ -7,10 +7,10 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class PagedReadModelTest {
+class PagedResultTest {
 
     @Test
-    @DisplayName("Debería crear PagedReadModel con valores válidos correctamente")
+    @DisplayName("Debería crear PagedResult con valores válidos correctamente")
     void deberiaCrearPagedReadModelConValoresValidos() {
         // Arrange
         List<String> content = List.of("Item 1", "Item 2");
@@ -21,18 +21,18 @@ class PagedReadModelTest {
         boolean isLast = true;
 
         // Act
-        PagedReadModel<String> pagedReadModel = new PagedReadModel<>(
+        PagedResult<String> pagedResult = new PagedResult<>(
             content, pageNumber, pageSize, totalElements, totalPages, isLast
         );
 
         // Assert
-        assertThat(pagedReadModel).isNotNull();
-        assertThat(pagedReadModel.content()).hasSize(2).containsExactly("Item 1", "Item 2");
-        assertThat(pagedReadModel.pageNumber()).isEqualTo(0);
-        assertThat(pagedReadModel.pageSize()).isEqualTo(10);
-        assertThat(pagedReadModel.totalElements()).isEqualTo(2L);
-        assertThat(pagedReadModel.totalPages()).isEqualTo(1);
-        assertThat(pagedReadModel.isLast()).isTrue();
+        assertThat(pagedResult).isNotNull();
+        assertThat(pagedResult.content()).hasSize(2).containsExactly("Item 1", "Item 2");
+        assertThat(pagedResult.pageNumber()).isEqualTo(0);
+        assertThat(pagedResult.pageSize()).isEqualTo(10);
+        assertThat(pagedResult.totalElements()).isEqualTo(2L);
+        assertThat(pagedResult.totalPages()).isEqualTo(1);
+        assertThat(pagedResult.isLast()).isTrue();
     }
 
     @Test
@@ -42,14 +42,14 @@ class PagedReadModelTest {
         List<String> emptyContent = List.of();
 
         // Act
-        PagedReadModel<String> pagedReadModel = new PagedReadModel<>(
+        PagedResult<String> pagedResult = new PagedResult<>(
             emptyContent, 0, 10, 0L, 0, true
         );
 
         // Assert
-        assertThat(pagedReadModel.content()).isEmpty();
-        assertThat(pagedReadModel.totalElements()).isZero();
-        assertThat(pagedReadModel.totalPages()).isZero();
-        assertThat(pagedReadModel.isLast()).isTrue();
+        assertThat(pagedResult.content()).isEmpty();
+        assertThat(pagedResult.totalElements()).isZero();
+        assertThat(pagedResult.totalPages()).isZero();
+        assertThat(pagedResult.isLast()).isTrue();
     }
 }
